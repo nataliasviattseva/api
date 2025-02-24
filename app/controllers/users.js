@@ -45,7 +45,7 @@ const Users = class Users {
   showById () {
     this.app.get('/user/:id', this.authenticateToken,  (req, res) => {
       try {
-        if (req.user.role === 'coach') {
+        if (req.user.role === 'admin') {
           this.UserModel.findById(req.params.id).then((user) => {
             res.status(200).json(user || {})
           }).catch(() => {
@@ -57,7 +57,7 @@ const Users = class Users {
         } else {
           res.status(401).json({
             code: 401,
-            message: 'Unauthorized you are not a coach'
+            message: 'Unauthorized you are not a admin'
           })
         }
       } catch (err) {

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   development: {
     type: 'development',
     port: 3000,
@@ -9,4 +9,4 @@ module.exports = {
     port: 3000,
     mongodb: 'mongodb+srv://nataliasviattseva:12345@cluster0.denbq.mongodb.net/demo'
   }
-}
+};

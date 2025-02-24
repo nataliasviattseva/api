@@ -1,82 +1,79 @@
-# API Users
 
-## Overview
-The API allows users to retrieve all of the users of the application in micro service through a REST architecture. This API will be mainly used for registed Accounts.
+# Node.js & MongoDB Cluster Setup Guide
 
-It will also create own users to recover data to the platform but is in no way related to the users collected via the crawling of profiles on Social Networks.
+This guide provides a comprehensive walkthrough to create your MongoDB account, set up a cluster, and configure your Node.js application to interact with it. Whether you're new to MongoDB or looking to streamline your development process, follow these steps for a smooth setup.
 
-### [POST] Create user
-Allows the creation of a single user.
+---
+## Table of Contents
+1. [Creating a MongoDB Account and Cluster](#creating-a-mongodb-account-and-cluster)
+- [Sign Up for MongoDB Atlas](#sign-up-for-mongodb-atlas)
+- [Create a New Cluster](#create-a-new-cluster)
+- [Configure Cluster Access](#configure-cluster-access)
+- [Retrieve Your Connection String](#retrieve-your-connection-string)
+2. [npm Installation](#npm-installation)
+3. [Running the Application Locally](#running-the-application-locally)
+<br>
+---
 
-|                            |                  |
-|----------------------------|------------------|
-| Requires authentication ?  | No               |
-| Who can use it ?           | Owner and users  |
-| Response formats           | application/json |
-
-* HTTP request : POST → user/create
-
-#### Parameters :
-```javascript
-{
-  'firstname': String, // Optional
-  'lastname': Number, // Optional
-  'age': Number, // Optional
-  'city': String // Optional
-}
+## Creating a MongoDB Account and Cluster
+### Sign Up for MongoDB Atlas
+1.  **Visit the MongoDB Atlas Website:**
+- Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas) and click **"Start Free"**.
+2.  **Create Your Account:**
+- Fill in the required details and create your account.
+- Verify your email by clicking the link sent to your inbox.
+### Create a New Cluster
+1.  **Log In and Build a Cluster:**
+- Once logged in, click **"Build a Cluster"**.
+2.  **Choose Your Settings:**
+- Select your cloud provider (AWS, Azure, or GCP) and your preferred region.
+- Choose a cluster tier. For testing or development, the **M0 free tier** is a great starting point.
+3.  **Create the Cluster:**
+- Click **"Create Cluster"** and wait a few minutes for the setup to complete.
+### Configure Cluster Access
+1.  **Whitelist Your IP Address:**
+- Navigate to the **"Network Access"** section.
+- Click **"Add IP Address"** and either add your current IP or allow access from anywhere (`0.0.0.0/0`) for development purposes.
+2.  **Create a Database User:**
+- Go to **"Database Access"**.
+- Create a new database user by providing a username and password.
+- Assign the necessary permissions to the user.
+### Retrieve Your Connection String
+1.  **Connect Your Application:**
+- Once your cluster is ready, click **"Connect"** and choose **"Connect your application"**.
+2.  **Copy the Connection String:**
+- Copy the provided connection string, replacing `<username>`, `<password>`, and `<dbname>` with your actual credentials and desired database name.
+<br>
+---
+# npm Installation
+1.  **Download the Node.js Installer:**
+- Visit the official [Node.js website](https://nodejs.org/en/) and download the installer (the LTS version is recommended) related to your OS.
+2.  **Run the Installer:**
+- Launch the downloaded file and follow the on-screen instructions. The installer will set up both Node.js and npm on your system.
+3.  **Verify the Installation:**
+- Open Command Prompt and type:
+```bash
+node -v
+npm -v
 ```
-
-#### Response :
-```javascript
-  {
-    _id: Object_ID,
-    firstname: String,
-    lastname: String,
-    age: Number,
-    city: String
-  }
+- These commands will display the installed versions of Node.js and npm, respectively.
+<br>
+---
+## Running the Application Locally
+1.  **Navigate to Your Project Directory:**
+- Open your terminal and change to your project directory. For example, if your project folder is named `api`:
+```bash
+cd api
 ```
-
-### [POST] Show user
-Show an user by id.
-
-|                            |                  |
-|----------------------------|------------------|
-| Requires authentication ?  | No               |
-| Who can use it ?           | Owner and users  |
-| Response formats           | application/json |
-
-* HTTP request : GET → user/show/:id
-
-#### Parameters :
-```javascript
-{
-  id: String // Required
-}
+2.  **Install Dependencies:**
+- Run the following command to install all the necessary packages specified in your `package.json` file:
+```bash
+npm i
 ```
-
-#### Response :
-```javascript
-  {
-    _id: Object_ID,
-    firstname: String,
-    lastname: String,
-    age: Number,
-    city: String
-  }
+3.  **Start the Development Server:**
+- Once the installation is complete, start the development server with:
+```bash
+npm run dev
 ```
-
-### Requirements
-* node 16
-* npm or yarn
-* git
-* mongodb (please configure config.js for link mongodb)
-
-### Install
-```yarn install```
-
-### Production mode
-```yarn prod```
-
-### Dev mode
-``` yarn dev```
+<br>
+---
