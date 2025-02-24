@@ -2,11 +2,11 @@ module.exports = {
   development: {
     type: 'development',
     port: 3000,
-    mongodb: 'mongodb+srv://nataliasviattseva:12345@cluster0.denbq.mongodb.net/demo'
+    mongodb: 'mongodb+srv://'
   },
   production: {
     type: 'production',
     port: 3000,
-    mongodb: 'mongodb+srv://nataliasviattseva:12345@cluster0.denbq.mongodb.net/demo'
+    mongodb: 'mongodb+srv://'
   }
 }
