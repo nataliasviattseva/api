@@ -123,9 +123,19 @@ npm -v
 
 ## Running the Application Locally
 
-1. **Navigate to Your Project Directory:**
+1. **Clone the Repository:**
 
-- Open your terminal and change to your project directory. For example, if your project folder is named `api`:
+- First, clone the API repository from GitHub to your local machine.
+
+```bash
+
+git clone https://github.com/nataliasviattseva/api.git
+
+```
+
+2. **Navigate to Your Project Directory:**
+
+- Open your terminal and navigate to your project directory `api`:
 
 ```bash
 
@@ -133,7 +143,7 @@ cd api
 
 ```
 
-2. **Install Dependencies:**
+3. **Install Dependencies:**
 
 - Run the following command to install all the necessary packages specified in your `package.json` file:
 
@@ -143,7 +153,7 @@ npm i
 
 ```
 
-3. **Start the Development Server:**
+4. **Start the Development Server:**
 
 - Once the installation is complete, start the development server with:
 
